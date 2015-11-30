@@ -144,7 +144,7 @@ module.exports = function(options){
 				baseRequest({
 					uri: "observation/latLong/current/?",
 					qs: options,
-					json: options.format === 'application/json'
+					json: options.format === "application/json"
 				}, function(err, message, body){
 					callback(err, body);
 				});
