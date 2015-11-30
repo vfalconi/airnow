@@ -1,0 +1,37 @@
+{
+  "name": "airnow",
+  "version": "1.0.0",
+  "description": "npm module for airnow.org webservices API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://Zambonilli@github.com/Asthmapolis/airnow.git"
+  },
+  "keywords": [
+    "airnow.org",
+    "AQI",
+    "EPA"
+  ],
+  "author": "Mike Lohmeier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Asthmapolis/airnow/issues"
+  },
+  "homepage": "https://github.com/Asthmapolis/airnow",
+  "dependencies": {
+    "async": "1.5.0",
+    "request": "2.67.0",
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "mocha": "2.3.4",
+    "mockery": "1.4.0"
+  },
+  "engines": {
+    "node": ">=4.2.2",
+    "npm": ">=2.14.7"
+  }
+}
