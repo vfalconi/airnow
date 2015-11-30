@@ -1,6 +1,6 @@
 # airnow.js
 
-airnow is a module for making HTTP requests to the airnow.org webservices API.
+airnow is a module for making HTTP requests to the airnowapi.org webservices API.
 
 ## Installation
 
