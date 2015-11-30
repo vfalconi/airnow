@@ -5,13 +5,15 @@ var async 		= require('async');
 var _			= require('underscore');
 var packageJson = require('./package.json');
 
-module.exports = function(apiKey){
+module.exports = function(options){
+	var apiKey = options.apiKey;
 	
 	// build a base request
 	var baseRequest = request.defaults({
 		baseUrl: "http://www.airnowapi.org/aq/",
+		uri: "",
 		timeout: 60000,
-		method: 'GET',
+		method: "GET",
 		gzip: true,
 		headers: {
 			"User-Agent": "npm-airnow/" +packageJson.version
@@ -34,8 +36,6 @@ module.exports = function(apiKey){
 		* @param {module:airnow/client~getForecastByZipCodeCallback} callback callback
 		*/
 		getForecastByZipCode: function(options, callback){
-			// set the correct baseUrl for this endpoint
-			var r = baseRequest.defaults({ baseUrl: baseRequest.baseUrl + 'forecast/zipCode/?'})
 			
 			// set the correct defaults
 			_.defaults(options, {
@@ -45,9 +45,10 @@ module.exports = function(apiKey){
 			
 			// send with brute force retry
 			async.retry({ times: 5, interval: 100 }, function(callback){
-				r({
+				baseRequest({
+					uri: "forecast/zipCode/?",
 					qs: options,
-					json: options.format === 'application/json'
+					json: options.format === "application/json"
 				}, function(err, message, body){
 					callback(err, body);
 				});
@@ -68,8 +69,6 @@ module.exports = function(apiKey){
 		* @param {module:airnow/client~getForecastByLatLongCallback} callback callback
 		*/
 		getForecastByLatLong: function(options, callback){
-			// set the correct baseUrl for this endpoint
-			var r = baseRequest.defaults({ baseUrl: baseRequest.baseUrl + 'forecast/latLong/?'})
 			
 			// set the correct defaults
 			_.defaults(options, {
@@ -79,9 +78,10 @@ module.exports = function(apiKey){
 			
 			// send with brute force retry
 			async.retry({ times: 5, interval: 100 }, function(callback){
-				r({
+				baseRequest({
+					uri: "forecast/latLong/?",
 					qs: options,
-					json: options.format === 'application/json'
+					json: options.format === "application/json"
 				}, function(err, message, body){
 					callback(err, body);
 				});
@@ -100,8 +100,6 @@ module.exports = function(apiKey){
 		* @param {module:airnow/client~getObservationsByZipCodeCallback} callback callback
 		*/
 		getObservationsByZipCode: function(options, callback){
-			// set the correct baseUrl for this endpoint
-			var r = baseRequest.defaults({ baseUrl: baseRequest.baseUrl + 'observation/zipCode/current/?'})
 			
 			// set the correct defaults
 			_.defaults(options, {
@@ -111,9 +109,10 @@ module.exports = function(apiKey){
 			
 			// send with brute force retry
 			async.retry({ times: 5, interval: 100 }, function(callback){
-				r({
+				baseRequest({
+					uri: "observation/zipCode/current/?",
 					qs: options,
-					json: options.format === 'application/json'
+					json: options.format === "application/json"
 				}, function(err, message, body){
 					callback(err, body);
 				});
@@ -133,8 +132,6 @@ module.exports = function(apiKey){
 		* @param {module:airnow/client~getObservationsByLatLngCallback} callback callback
 		*/
 		getObservationsByLatLng: function(options, callback){
-			// set the correct baseUrl for this endpoint
-			var r = baseRequest.defaults({ baseUrl: baseRequest.baseUrl + 'observation/latLong/current/?'})
 			
 			// set the correct defaults
 			_.defaults(options, {
@@ -144,7 +141,8 @@ module.exports = function(apiKey){
 			
 			// send with brute force retry
 			async.retry({ times: 5, interval: 100 }, function(callback){
-				r({
+				baseRequest({
+					uri: "observation/latLong/current/?",
 					qs: options,
 					json: options.format === 'application/json'
 				}, function(err, message, body){

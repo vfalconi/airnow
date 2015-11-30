@@ -11,7 +11,7 @@ npm install airnow --save
 ```javascript
 var airnow = require('airnow');
 
-var client = new airnow('my airnow.org key');
+var client = airnow({ apiKey: 'my airnow.org key' });
 
 // get the forecast by zip
 client.getForecastByZipCode({ zipCode: "53703" }, function(err, forecast){

@@ -29,5 +29,9 @@
   "devDependencies": {
     "mocha": "2.3.4",
     "mockery": "1.4.0"
+  },
+  "engines": {
+    "node": ">=4.2.2",
+    "npm": ">=2.14.7"
   }
 }
