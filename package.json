@@ -1,6 +1,6 @@
 {
   "name": "airnow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm module for airnowapi.org webservices API.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Asthmapolis/airnow",
   "dependencies": {
     "async": "1.5.0",
+    "moment": "^2.10.6",
     "request": "2.67.0",
     "underscore": "1.8.3"
   },
