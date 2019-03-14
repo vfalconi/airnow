@@ -1,10 +1,9 @@
 {
   "name": "airnow",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "npm module for airnowapi.org webservices API.",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git@github.com:Asthmapolis/airnow.git"
